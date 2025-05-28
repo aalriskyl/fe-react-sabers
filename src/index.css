@@ -1,1 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Epilogue:wght@300;400;500;600;700;800;900&display=swap");
+
 @import "tailwindcss";
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Custom Utility Classes (standalone) */
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+.font-space {
+  font-family: "Space Grotesk", sans-serif;
+}
+.font-epilogue {
+  font-family: "Epilogue", sans-serif;
+}
+
+/* Custom Color Classes (standalone) */
+.text-primary {
+  color: #fe0000;
+}
+.text-secondary {
+  color: #012d9a;
+}
+.text-tertiary {
+  color: #5f5f5f;
+}
+.bg-primary {
+  background-color: #fe0000;
+}
+.bg-secondary {
+  background-color: #012d9a;
+}
+.bg-tertiary {
+  background-color: #5f5f5f;
+}
+.border-primary {
+  border-color: #fe0000;
+}
+
+/* Custom Button (standalone) */
+.button-primary {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 1.5rem;
+  background-color: #fe0000;
+  border-radius: 9999px;
+  color: white;
+  border: 1px solid #fe0000;
+  transition: all 0.2s ease-in-out;
+}
+.button-primary:hover {
+  background-color: white;
+  color: #fe0000;
+  cursor: pointer;
+}
+
+/* Tailwind Layer Components (for reusable classes) */
+@layer components {
+  .card {
+    @apply min-w-[298px] min-h-[321px] bg-white rounded-[40px] shadow-lg p-6;
+    /* Add hover effects, transitions, etc. */
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-out {
+  animation: slide-out 0.3s ease-in forwards;
+}
+
+/* Smooth max-height transition */
+.transition-max-height {
+  transition: max-height 0.3s ease-in-out;
+}

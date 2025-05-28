@@ -1,0 +1,60 @@
+/* styles/marquee.css */
+.logo-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.logo-marquee__container {
+  display: flex;
+  width: fit-content; /* Adjust to content width */
+  animation: slide 30s linear infinite;
+  will-change: transform; /* Optimize for animation */
+}
+
+.logo-marquee__item {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 70px;
+  padding: 0.5rem 1.25rem;
+  margin: 0 0.75rem;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__container {
+    animation: none;
+    justify-content: center;
+  }
+}
+
+/* Pause animation on hover */
+.logo-marquee:hover .logo-marquee__container {
+  animation-play-state: paused;
+}
